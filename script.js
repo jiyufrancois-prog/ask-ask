@@ -41,7 +41,7 @@ noBtn.addEventListener("touchstart", moveNoButton);
 
 // YES clicked
 yesBtn.addEventListener("click", () => {
-  title.textContent = "YIPEE BLEE SAID YES!!";
+  title.textContent = "YIPEE BLEE SAID YES!! ૮ ˶ᵔ ᵕ ᵔ˶ ა ";
 
   catImg.src = "dancing-dog.gif";
 
