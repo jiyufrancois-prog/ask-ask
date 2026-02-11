@@ -4,37 +4,27 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-
-    /* Changed to your actual file */
-    background-image: url("blue heart bg.jpg");
+    background: url("background.png");
     background-size: cover;
     background-position: center;
-
     font-family: "Pixelify Sans", sans-serif;
 }
 
-/* Envelope Screen */
+/* Envelope */
 #envelope-container {
     text-align: center;
     cursor: pointer;
 }
 
-@keyframes pulse {
-    0% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.1);
-    }
-    100% {
-        transform: scale(1);
-    }
-}
-
 #envelope {
     width: 200px;
     animation: pulse 1.5s infinite;
-    cursor: pointer;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
 }
 
 /* Letter Container */
@@ -51,23 +41,18 @@ body {
     width: 90vw;
     max-width: 800px;
     aspect-ratio: 3/2;
-    padding: 20px 20px 0 20px;
+    padding: 20px;
+    padding-top: 160px;
 
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     text-align: center;
 
-    /* Changed to your actual file */
-    background-image: url("window.gif");
+    background: url("window.png");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-
-    border-radius: 12px;
-    gap: 1px;
-    padding-top: 180px;
 
     transform: scale(1.2);
     opacity: 0;
@@ -80,17 +65,13 @@ body {
 }
 
 h1 {
-    font-size: 30px;
+    font-size: 28px;
     margin: 0;
 }
 
-p {
-    font-size: 40px;
-}
-
-/* Dog GIF (formerly cat) */
+/* Dog Image */
 .cat {
-    width: 250px;
+    width: 230px;
     margin: 10px 0;
     transition: width 0.4s ease;
 }
@@ -104,7 +85,6 @@ p {
     display: flex;
     justify-content: center;
     gap: 30px;
-    position: relative;
 }
 
 .no-wrapper {
@@ -113,37 +93,25 @@ p {
 
 .btn {
     width: 120px;
-    cursor: pointer;
     user-select: none;
 }
 
-.yes-btn,
-.no-btn {
-    width: 120px;
-    height: auto;
-    display: inline-block;
-}
-
 .yes-btn {
-    position: relative;
-    z-index: 2;
-    transform-origin: center center;
+    cursor: pointer;
     transition: transform 0.3s ease;
 }
 
 .no-btn {
-    z-index: 1;
-    position: relative;
-    transition: transform 0.15s ease;
     cursor: default;
+    transition: transform 0.25s ease;
 }
 
+/* Final Text */
 .final-text {
-    font-size: 22px;
-    line-height: 1.4;
-    text-align: center;
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: rgba(255, 240, 240, 0.5);
+    display: none;
+    font-size: 20px;
+    line-height: 1.5;
+    background: rgba(101, 90, 247, 0.6);
+    padding: 12px 18px;
     border-radius: 12px;
 }
