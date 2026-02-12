@@ -42,8 +42,7 @@ body.letter-mode {
   position: absolute;
   font-size: 40px;
   cursor: pointer;
-  /* If this is a text heart (❤️), it stays red. 
-     If it's an icon, you can add 'color: #0077b6;' here */
+  
 }
 
 #envelope-container {
@@ -60,7 +59,7 @@ body.letter-mode {
 #envelope-container p {
   padding: 8px 16px;
   /* Changed background tint to a deep blue semi-transparent */
-  background: rgba(0, 119, 182, 0.3);
+  background: rgba(5, 90, 136, 0.3);
   border-radius: 12px;
   display: inline-block;
   color: #caf0f8; /* Ensuring text is readable blue-white */
