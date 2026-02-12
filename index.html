@@ -3,48 +3,59 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bleep bleep</title>
-
+  <title>Valentine Game</title>
   <link rel="stylesheet" href="style.css" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Aldrich&family=Pixelify+Sans:wght@400..700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap"
     rel="stylesheet"
   />
 </head>
 
-<body>
+<body class="game-mode">
 
-  <!-- Envelope Screen -->
-  <div id="envelope-container">
-    <img src="envelope.png" alt="Envelope" id="envelope" />
+  
+  <div id="game-container">
+    <h1>Catch 5 Hearts to Unlock the Letter 💛</h1>
+    <div id="game-area">
+      <div id="heart">💛</div>
+    </div>
+    <p id="game-score">Score: 0 / 5</p>
   </div>
 
-  <!-- Letter Screen -->
+  
+  <div id="envelope-container">
+    <img src="envelope.png" id="envelope" />
+    <p>Prize!!</p>
+  </div>
+
+  
   <div id="letter-container">
     <div class="letter-window">
       <h1 id="letter-title">Will you be my.. coughs.. Valentine?</h1>
 
-      <img src="dog-heart.gif" class="cat" id="letter-cat" alt="Dog holding heart" />
+      <img src="dog-heart.gif" class="cat" id="letter-cat" />
 
       <div class="buttons" id="letter-buttons">
-        <img src="yes.png" class="btn yes-btn" alt="Yes" />
-
+        <img src="yes.png" class="btn yes-btn" />
         <div class="no-wrapper">
-          <img src="no.png" class="btn no-btn" alt="No" />
+          <img src="no.png" class="btn no-btn" />
         </div>
       </div>
 
       <p id="final-text" class="final-text">
-        <strong>Valentine’s Date Idea: </strong><br><br>
+        <strong>Valentine’s Date Idea:</strong><br><br>
         Me and you,<br>
         Roblox all day Saturday?<br><br>
         Or maybe I fly there… joke<br>
       </p>
     </div>
   </div>
+
+  <!-- 🎵 MUSIC -->
+  <audio id="bg-music" src="style.mp3" loop></audio>
 
   <script src="script.js"></script>
 </body>

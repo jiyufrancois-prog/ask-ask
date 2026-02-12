@@ -1,7 +1,12 @@
-const envelope = document.getElementById("envelope-container");
-const letter = document.getElementById("letter-container");
+const gameContainer = document.getElementById("game-container");
+const envelopeContainer = document.getElementById("envelope-container");
+const letterContainer = document.getElementById("letter-container");
 const letterWindow = document.querySelector(".letter-window");
 
+const heart = document.getElementById("heart");
+const scoreDisplay = document.getElementById("game-score");
+
+const envelope = document.getElementById("envelope");
 const noBtn = document.querySelector(".no-btn");
 const yesBtn = document.querySelector(".yes-btn");
 
@@ -10,42 +15,66 @@ const catImg = document.getElementById("letter-cat");
 const buttons = document.getElementById("letter-buttons");
 const finalText = document.getElementById("final-text");
 
-// Open letter
+const music = document.getElementById("bg-music");
+
+let score = 0;
+const targetScore = 5;
+
+
+function moveHeart() {
+  const area = document.getElementById("game-area");
+  const maxX = area.clientWidth - 40;
+  const maxY = area.clientHeight - 40;
+
+  heart.style.left = Math.random() * maxX + "px";
+  heart.style.top = Math.random() * maxY + "px";
+}
+
+heart.addEventListener("click", () => {
+  score++;
+  scoreDisplay.textContent = `Score: ${score} / ${targetScore}`;
+  moveHeart();
+
+  if (score >= targetScore) {
+    gameContainer.style.display = "none";
+    envelopeContainer.style.display = "block";
+  }
+});
+
+moveHeart();
+
+
 envelope.addEventListener("click", () => {
-  envelope.style.display = "none";
-  letter.style.display = "flex";
+  envelopeContainer.style.display = "none";
+  letterContainer.style.display = "flex";
+
+  document.body.classList.remove("game-mode");
+  document.body.classList.add("letter-mode");
 
   setTimeout(() => {
     letterWindow.classList.add("open");
   }, 50);
+
+  music.volume = 0.5;
+  music.play();
 });
 
-// Move NO button (PC + Mobile safe)
-function moveNoButton(e) {
+
+function moveNo(e) {
   e.preventDefault();
-
-  const container = letterWindow.getBoundingClientRect();
-  const btnRect = noBtn.getBoundingClientRect();
-
-  const maxX = container.width / 2 - btnRect.width;
-  const maxY = container.height / 2 - btnRect.height;
-
-  const moveX = (Math.random() - 0.5) * maxX;
-  const moveY = (Math.random() - 0.5) * maxY;
-
-  noBtn.style.transform = `translate(${moveX}px, ${moveY}px)`;
+  const max = 150;
+  const x = (Math.random() - 0.5) * max;
+  const y = (Math.random() - 0.5) * max;
+  noBtn.style.transform = `translate(${x}px, ${y}px)`;
 }
 
-noBtn.addEventListener("mouseover", moveNoButton);
-noBtn.addEventListener("touchstart", moveNoButton);
+noBtn.addEventListener("mouseover", moveNo);
+noBtn.addEventListener("touchstart", moveNo);
 
-// YES clicked
+
 yesBtn.addEventListener("click", () => {
-  title.textContent = "YIPEE BLEE SAID YES!! ૮ ˶ᵔ ᵕ ᵔ˶ ა ";
-
+  title.textContent = "YIPEE BLEE SAID YES!!";
   catImg.src = "dancing-dog.gif";
-
-  letterWindow.classList.add("final");
   buttons.style.display = "none";
   finalText.style.display = "block";
 });
